@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Le Salon de Fred à Thônes : coiffeur pour femmes, hommes et enfants. Découvrez nos services, horaires, adresse et prenez rendez-vous facilement.">
+
+    <!-- Preconnect pour améliorer les performances -->
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="preconnect" href="https://maps.googleapis.com">
+
     <!-- Open Graph pour Facebook et réseaux sociaux -->
     <meta property="og:title" content="Le Salon de Fred - Coiffeur à Thônes (femme, homme, enfant)">
     <meta property="og:description"
@@ -54,6 +59,10 @@
     <link rel="icon" type="image/png" href="images/logo/logoDesktop.webp" sizes="120x120">
     <link rel="apple-touch-icon" href="images/logo/logoMobile.webp">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+
+    <!-- Preload du CSS critique -->
+    <link rel="preload" href="css/style.css" as="style">
+
     <title>Le Salon de Fred - Coiffeur à Thônes (femme, homme, enfant)</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -61,7 +70,8 @@
 <body>
     <header id="home">
         <a class="home" href="#home">
-            <img class="logo" src="images/logo/logo.webp" alt="Logo du salon de coiffure Le Salon de Fred">
+            <img class="logo" src="images/logo/logo.webp" alt="Logo du salon de coiffure Le Salon de Fred" width="120"
+                height="120">
         </a>
     </header>
     <nav>
@@ -94,10 +104,11 @@
             <h1>Le Salon de Fred</h1>
             <p>Artisan coiffeur à Thônes</p>
             <picture>
-                <source srcset="images/salon/introDesktop.webp" media="(min-width: 1024px)">
-                <source srcset="images/salon/introTablette.webp" media="(min-width: 600px)">
+                <source srcset="images/salon/introDesktop.webp" media="(min-width: 1024px)" width="1920" height="1080">
+                <source srcset="images/salon/introTablette.webp" media="(min-width: 600px)" width="1024" height="768">
                 <img src="images/salon/introMobile.webp"
-                    alt="Photo de l'intérieur du salon de coiffure Le Salon de Fred à Thônes">
+                    alt="Photo de l'intérieur du salon de coiffure Le Salon de Fred à Thônes" width="600" height="800"
+                    fetchpriority="high">
             </picture>
         </section>
         <section class="services" id="services">
@@ -108,25 +119,34 @@
                 <li>
                     <h3>Coiffure Femme</h3>
                     <picture>
-                        <source srcset="images/gens/FEMMEDesktop.webp" media="(min-width: 1024px)">
-                        <source srcset="images/gens/FEMMETablette.webp" media="(min-width: 600px)">
-                        <img src="images/gens/FEMMEMobile.webp" alt="Coiffure femme" loading="lazy">
+                        <source srcset="images/gens/FEMMEDesktop.webp" media="(min-width: 1024px)" width="640"
+                            height="960">
+                        <source srcset="images/gens/FEMMETablette.webp" media="(min-width: 600px)" width="512"
+                            height="768">
+                        <img src="images/gens/FEMMEMobile.webp" alt="Coiffure femme" loading="lazy" width="400"
+                            height="600">
                     </picture>
                 </li>
                 <li>
                     <h3>Coiffure Enfant</h3>
                     <picture>
-                        <source srcset="images/gens/ENFANTDesktop.webp" media="(min-width: 1024px)">
-                        <source srcset="images/gens/ENFANTTablette.webp" media="(min-width: 600px)">
-                        <img src="images/gens/ENFANTMobile.webp" alt="Coiffure enfant" loading="lazy">
+                        <source srcset="images/gens/ENFANTDesktop.webp" media="(min-width: 1024px)" width="640"
+                            height="960">
+                        <source srcset="images/gens/ENFANTTablette.webp" media="(min-width: 600px)" width="512"
+                            height="768">
+                        <img src="images/gens/ENFANTMobile.webp" alt="Coiffure enfant" loading="lazy" width="400"
+                            height="600">
                     </picture>
                 </li>
                 <li>
                     <h3>Coiffure Homme</h3>
                     <picture>
-                        <source srcset="images/gens/HOMMEDesktop.webp" media="(min-width: 1024px)">
-                        <source srcset="images/gens/HOMMETablette.webp" media="(min-width: 600px)">
-                        <img src="images/gens/HOMMEMobile.webp" alt="Coiffure homme" loading="lazy">
+                        <source srcset="images/gens/HOMMEDesktop.webp" media="(min-width: 1024px)" width="640"
+                            height="960">
+                        <source srcset="images/gens/HOMMETablette.webp" media="(min-width: 600px)" width="512"
+                            height="768">
+                        <img src="images/gens/HOMMEMobile.webp" alt="Coiffure homme" loading="lazy" width="400"
+                            height="600">
                     </picture>
                 </li>
             </ul>
@@ -175,7 +195,7 @@
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2766.1234567890123!2d6.321654!3d45.881234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478b8b8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2s6%20Rue%20de%20la%20Saulne%2C%2074230%20Thones!5e0!3m2!1sen!2sfr!4v1699999999999!5m2!1sen!2sfr"
                         width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        referrerpolicy="no-referrer-when-downgrade" title="Carte Google Maps du Salon de Fred"></iframe>
                 </div>
             </div>
         </section>
