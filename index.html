@@ -7,9 +7,11 @@
     <meta name="description"
         content="Le Salon de Fred à Thônes : coiffeur pour femmes, hommes et enfants. Découvrez nos services, horaires, adresse et prenez rendez-vous facilement.">
 
-    <!-- Preconnect pour améliorer les performances -->
-    <link rel="preconnect" href="https://www.google.com">
-    <link rel="preconnect" href="https://maps.googleapis.com">
+    <!-- Optimisations de connexion précoce -->
+    <link rel="dns-prefetch" href="https://www.google.com">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
+    <link rel="preconnect" href="https://www.google.com" crossorigin>
+    <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
 
     <!-- Open Graph pour Facebook et réseaux sociaux -->
     <meta property="og:title" content="Le Salon de Fred - Coiffeur à Thônes (femme, homme, enfant)">
@@ -64,11 +66,202 @@
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
 
-    <!-- Preload du CSS critique -->
-    <link rel="preload" href="css/style.css" as="style">
-
     <title>Le Salon de Fred - Coiffeur à Thônes (femme, homme, enfant)</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- CSS critique inline pour améliorer le LCP -->
+    <style>
+        /* Reset de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            color: black;
+            min-height: 115px;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        header .home {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: black
+        }
+
+        header .logo {
+            width: 120px;
+            height: 120px;
+            margin-right: 20px
+        }
+
+        /* Nav */
+        nav {
+            background-color: black;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 16px;
+            border-radius: 5px
+        }
+
+        /* Intro - CSS critique pour le LCP */
+        .intro {
+            position: relative;
+            width: 100vw;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-bottom: 0
+        }
+
+        .intro img {
+            width: 100%;
+            height: 80vh;
+            display: block;
+            object-fit: cover;
+            background-color: #f4f4f4
+        }
+
+        .intro::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20em;
+            background: rgba(255, 255, 255, 0.5)
+        }
+
+        .intro h1 {
+            position: absolute;
+            font-size: 80px;
+            font-weight: 600;
+            bottom: 1.5em;
+            left: 50%;
+            z-index: 1;
+            transform: translateX(-50%);
+            margin: 0;
+            text-align: center;
+            background: none;
+            color: black;
+            white-space: nowrap
+        }
+
+        .intro p {
+            position: absolute;
+            font-size: 28px;
+            bottom: 3em;
+            left: 50%;
+            z-index: 1;
+            transform: translateX(-50%);
+            margin: 0;
+            text-align: center;
+            background: none;
+            color: black
+        }
+
+        /* Responsive mobile */
+        @media (max-width:768px) {
+            header {
+                justify-content: center;
+                padding: 0.5em
+            }
+
+            header .logo {
+                width: 80px;
+                height: 80px
+            }
+
+            nav a {
+                font-size: 16px;
+                padding: 6px 12px
+            }
+
+            .intro img {
+                height: 80vh
+            }
+
+            .intro::after {
+                height: 15em
+            }
+
+            .intro h1 {
+                font-size: 48px
+            }
+
+            .intro p {
+                font-size: 18px
+            }
+        }
+
+        @media (max-width:480px) {
+            .intro img {
+                height: 75vh
+            }
+
+            .intro::after {
+                height: 10em
+            }
+
+            .intro h1 {
+                font-size: 32px
+            }
+
+            .intro p {
+                font-size: 14px;
+                bottom: 2em
+            }
+        }
+    </style>
+
+    <!-- Preload de l'image LCP -->
+    <link rel="preload" as="image" href="images/salon/introMobile.webp"
+        imagesrcset="images/salon/introMobile.webp 600w, images/salon/introTablette.webp 1024w, images/salon/introDesktop.webp 1920w"
+        imagesizes="100vw">
+
+    <!-- CSS complet chargé de manière asynchrone -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="css/style.css">
+    </noscript>
+    <script>
+        // Fallback pour charger le CSS si preload échoue
+        !function (e) { "use strict"; var t = function (t, n, r) { var o, i = e.document, s = i.createElement("link"); if (n) o = n; else { var a = (i.body || i.getElementsByTagName("head")[0]).childNodes; o = a[a.length - 1] } var l = i.styleSheets; s.rel = "stylesheet", s.href = t, s.media = "only x"; function d() { if (!s.addEventListener) return; s.removeEventListener("load", d), s.media = r || "all" } s.addEventListener && s.addEventListener("load", d), o.parentNode.insertBefore(s, n ? o : o.nextSibling); var c = function (e) { for (var t = s.href, n = l.length; n--;)if (l[n].href === t) return e(); setTimeout(function () { c(e) }) }; return s.addEventListener ? s : void c(d) }; t.loadCSS = t }("undefined" != typeof global ? global : this);
+    </script>
 </head>
 
 <body>
