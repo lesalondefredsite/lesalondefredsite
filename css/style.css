@@ -402,6 +402,9 @@ footer {
         height: 80px;
     }
 
+    .title h2 {
+        font-size: 28px;
+    }
 
     nav a {
         font-size: 16px;
@@ -475,6 +478,10 @@ footer {
         font-size: 15px;
     }
    
+
+    .title h2 {
+        font-size: 24px;
+    }
 
     nav a {
         text-align: center;
