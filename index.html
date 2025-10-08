@@ -247,6 +247,11 @@
         }
     </style>
 
+    <!-- Preload de l'image LCP -->
+    <link rel="preload" as="image" href="images/salon/introMobile.webp"
+        imagesrcset="images/salon/introMobile.webp 600w, images/salon/introTablette.webp 1024w, images/salon/introDesktop.webp 1920w"
+        imagesizes="100vw">
+
     <!-- CSS complet chargé de manière asynchrone -->
     <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
