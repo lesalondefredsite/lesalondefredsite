@@ -495,11 +495,11 @@ footer {
 
     .services li {
         width: 100%;
-        margin-bottom: 1em;
     }
 
     .services li img {
         height: 50vh;
+        object-position: center top;
     }
 
     .services li h3 {
@@ -522,6 +522,15 @@ footer {
         font-size: 14px;
         bottom: 2em;
     }
+}
+
+/* Mode paysage mobile - hauteur limitée */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .services li img {
+        height: 90vh !important;
+        object-position: center top;
+    }
+    
 }
 
 /* Affiche les réseaux sociaux nav à partir de 768px (desktop/tablette) */
