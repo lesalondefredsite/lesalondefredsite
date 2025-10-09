@@ -48,18 +48,23 @@
 - **Facebook** : [facebook.com/lesalondefred](https://www.facebook.com/lesalondefred)
 - **Instagram** : [@lesalondefred](https://www.instagram.com/lesalondefred)
 
-## 🌐 Mise en ligne
+## 🌐 Mise en ligne avec GitHub Pages & Infomaniak
 
 ### Prérequis
-- Hébergement web (OVH, O2Switch, Hostinger, etc.)
-- Nom de domaine
-- Certificat SSL (HTTPS)
+- Compte GitHub
+- Nom de domaine chez Infomaniak
+- Certificat SSL (HTTPS activé chez Infomaniak)
 
 ### Déploiement
-1. Uploader tous les fichiers via FTP ou panneau d'hébergement
-2. Activer le certificat SSL
-3. Soumettre le sitemap.xml à Google Search Console
-4. Vérifier que tous les liens fonctionnent
+1. Poussez tous les fichiers sur la branche `main` ou `gh-pages` de votre dépôt GitHub.
+2. Dans les paramètres du dépôt, activez GitHub Pages sur la branche souhaitée.
+3. Ajoutez un fichier [`CNAME`](CNAME) à la racine du projet avec :  
+   `lesalondefred.fr`
+4. Sur Infomaniak, configurez un enregistrement DNS de type CNAME pointant vers `votre-utilisateur.github.io.`  
+   (ou un A record si besoin, selon la [documentation GitHub Pages](https://docs.github.com/fr/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages))
+5. Attendez la propagation DNS, puis vérifiez que le site est accessible en HTTPS.
+6. Soumettez le [`sitemap.xml`](sitemap.xml) à Google Search Console.
+7. Vérifiez que tous les liens fonctionnent.
 
 ## 📝 Maintenance
 
@@ -79,11 +84,9 @@
 
 © 2025 Le Salon de Fred - Tous droits réservés
 
-
 **Version** : 1.0.0  
 **Dernière mise à jour** : 8 octobre 2025
 
 ---
-
 
 # lesalondefredsite
