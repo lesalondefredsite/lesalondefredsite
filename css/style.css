@@ -65,7 +65,7 @@ header {
     background-color: white;
     color: black;
     min-height: 115px;
-    padding: 1em;
+    padding: 0.5em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,10 +78,16 @@ header .home {
     color: black;
 }
 
+header .home picture {
+    width: 140px;
+    height: 140px;
+    display: block;
+}
+
 
 header .logo {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
 }
 
 nav {
@@ -396,9 +402,14 @@ footer {
         padding: 0.5em;
     }
 
+    header .home picture {
+        width: 100px;
+        height: 100px;
+    }
+
     header .logo {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
     }
 
     .title h2 {
@@ -487,6 +498,16 @@ footer {
     }
     nav ul {
         gap: 5px;
+    }
+
+    header .home picture {
+        width: 100px;
+        height: 100px;
+    }
+
+    header .logo {
+        width: 100px;
+        height: 100px;
     }
 
     .services ul {
