@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' blob: data:; font-src 'self'; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.googleapis.com; require-trusted-types-for 'script';">
     <meta name="description"
         content="Le Salon de Fred à Thônes : coiffeur pour femmes, hommes et enfants. Découvrez nos services, horaires, adresse et prenez rendez-vous facilement.">
 
@@ -39,7 +41,7 @@
             "image": "https://lesalondefred.fr/images/logo/logoDesktop.webp",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "6 rue de la saulne",
+                "streetAddress": "6 Rue de la Saulne",
                 "addressLocality": "Thônes",
                 "postalCode": "74230",
                 "addressCountry": "FR"
@@ -265,8 +267,15 @@
 <body>
     <header id="home">
         <a class="home" href="#home">
-            <img class="logo" src="images/logo/logo.webp" alt="Logo du salon de coiffure Le Salon de Fred" width="120"
-                height="120" decoding="async">
+            <picture>
+                <!-- Logo Desktop (≥1024px) -->
+                <source srcset="images/logo/logoDesktop.webp" media="(min-width: 1024px)" width="180" height="180">
+                <!-- Logo Tablette (≥600px) -->
+                <source srcset="images/logo/logoTablette.webp" media="(min-width: 600px)" width="120" height="120">
+                <!-- Logo Mobile (<600px) -->
+                <img class="logo" src="images/logo/logoMobile.webp" alt="Logo du salon de coiffure Le Salon de Fred"
+                    width="80" height="80" decoding="async">
+            </picture>
         </a>
     </header>
     <nav>
@@ -318,8 +327,8 @@
                             height="960">
                         <source srcset="images/gens/FEMMETablette.webp" media="(min-width: 600px)" width="512"
                             height="768">
-                        <img src="images/gens/FEMMEMobile.webp" alt="Coiffure femme" loading="lazy" width="400"
-                            height="600" sizes="100vw" decoding="async">
+                        <img src="images/gens/FEMMEMobile.webp" alt="Illustration Coiffure femme" loading="lazy"
+                            width="400" height="600" sizes="100vw" decoding="async">
                     </picture>
                 </li>
                 <li>
@@ -329,8 +338,8 @@
                             height="960">
                         <source srcset="images/gens/ENFANTTablette.webp" media="(min-width: 600px)" width="512"
                             height="768">
-                        <img src="images/gens/ENFANTMobile.webp" alt="Coiffure enfant" loading="lazy" width="400"
-                            height="600" sizes="100vw" decoding="async">
+                        <img src="images/gens/ENFANTMobile.webp" alt="Illustration Coiffure enfant" loading="lazy"
+                            width="400" height="600" sizes="100vw" decoding="async">
                     </picture>
                 </li>
                 <li>
@@ -340,8 +349,8 @@
                             height="960">
                         <source srcset="images/gens/HOMMETablette.webp" media="(min-width: 600px)" width="512"
                             height="768">
-                        <img src="images/gens/HOMMEMobile.webp" alt="Coiffure homme" loading="lazy" width="400"
-                            height="600" sizes="100vw" decoding="async">
+                        <img src="images/gens/HOMMEMobile.webp" alt="Illustration Coiffure homme" loading="lazy"
+                            width="400" height="600" sizes="100vw" decoding="async">
                     </picture>
                 </li>
             </ul>
