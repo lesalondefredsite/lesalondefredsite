@@ -280,11 +280,15 @@
         }
     </style>
 
+    <!-- Preload du CSS pour un chargement plus rapide -->
+    <link rel="preload" as="style" href="css/style.min.css">
+
     <!-- Preload de l'image LCP -->
-    <link rel="preload" as="image" href="images/salon/introDesktop.webp" media="(min-width:1024px)">
-    <link rel="preload" as="image" href="images/salon/introMobile.webp"
-        imagesrcset="images/salon/introMobile.webp 600w, images/salon/introTablette.webp 1024w, images/salon/introDesktop.webp 1920w"
-        imagesizes="100vw">
+    <link rel="preload" as="image" href="images/salon/introMobile.webp" media="(max-width:599px)" fetchpriority="high">
+    <link rel="preload" as="image" href="images/salon/introTablette.webp"
+        media="(min-width:600px) and (max-width:1023px)" fetchpriority="high">
+    <link rel="preload" as="image" href="images/salon/introDesktop.webp" media="(min-width:1024px)"
+        fetchpriority="high">
 
     <!-- CSS complet -->
     <link rel="stylesheet" href="css/style.min.css">

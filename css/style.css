@@ -27,7 +27,7 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Animations au scroll - optimisées */
+/* Animations au scroll - optimisées et différées */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -39,7 +39,8 @@ body {
     }
 }
 
-.intro, .services, #horaires {
+/* Pas d'animation sur intro pour ne pas retarder le LCP */
+.services, #horaires {
     animation: fadeInUp 0.8s ease-out;
 }
 
