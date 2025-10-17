@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' blob: data:; font-src 'self'; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.googleapis.com; require-trusted-types-for 'script';">
+        content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' blob: data:; font-src 'self'; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.googleapis.com;">
     <meta name="description"
         content="Le Salon de Fred à Thônes : coiffeur pour femmes, hommes et enfants. Découvrez nos services, horaires, adresse et prenez rendez-vous facilement.">
 
@@ -124,6 +124,7 @@
         header .logo {
             width: 135px;
             height: 140px;
+            object-fit: contain;
         }
 
         /* Nav */
@@ -149,6 +150,18 @@
             font-size: 18px;
             padding: 8px 16px;
             border-radius: 5px
+        }
+
+        nav a.btn-rdv {
+            background-color: white;
+            color: black;
+            font-weight: 600;
+            padding: 8px 8px;
+            transition: background-color 0.2s ease
+        }
+
+        nav a.btn-rdv:hover {
+            background-color: #e8e8e8
         }
 
         /* Intro - CSS critique pour le LCP */
@@ -217,12 +230,17 @@
 
             header .logo {
                 width: 96px;
-                height: 100px
+                height: 100px;
+                object-fit: contain;
             }
 
             nav a {
                 font-size: 16px;
                 padding: 6px 12px
+            }
+
+            nav a.btn-rdv {
+                padding: 6px 6px
             }
 
             .intro img {
@@ -268,28 +286,24 @@
         imagesrcset="images/salon/introMobile.webp 600w, images/salon/introTablette.webp 1024w, images/salon/introDesktop.webp 1920w"
         imagesizes="100vw">
 
-    <!-- CSS complet chargé de manière asynchrone -->
-    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="css/style.css">
-    </noscript>
-    <script>
-        // Fallback pour charger le CSS si preload échoue
-        !function (e) { "use strict"; var t = function (t, n, r) { var o, i = e.document, s = i.createElement("link"); if (n) o = n; else { var a = (i.body || i.getElementsByTagName("head")[0]).childNodes; o = a[a.length - 1] } var l = i.styleSheets; s.rel = "stylesheet", s.href = t, s.media = "only x"; function d() { if (!s.addEventListener) return; s.removeEventListener("load", d), s.media = r || "all" } s.addEventListener && s.addEventListener("load", d), o.parentNode.insertBefore(s, n ? o : o.nextSibling); var c = function (e) { for (var t = s.href, n = l.length; n--;)if (l[n].href === t) return e(); setTimeout(function () { c(e) }) }; return s.addEventListener ? s : void c(d) }; t.loadCSS = t }("undefined" != typeof global ? global : this);
-    </script>
+    <!-- CSS complet -->
+    <link rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
     <header id="home">
         <a class="home" href="#home">
             <picture>
-                <!-- Logo Desktop (≥1024px) -->
-                <source srcset="images/logo/logoDesktop.webp" media="(min-width: 1024px)" width="135" height="140">
-                <!-- Logo Tablette (≥600px) -->
-                <source srcset="images/logo/logoTablette.webp" media="(min-width: 600px)" width="120" height="120">
-                <!-- Logo Mobile (<600px) -->
-                <img class="logo" src="images/logo/logoMobile.webp" alt="Logo du salon de coiffure Le Salon de Fred"
-                    width="96" height="100" decoding="async">
+                <!-- Logo Desktop (≥1024px) - 2x pour écrans retina -->
+                <source srcset="images/logo/logoDesktop.webp 1x, images/logo/logo-512x512.png 2x"
+                    media="(min-width: 1024px)" width="135" height="140">
+                <!-- Logo Tablette (≥600px) - 2x pour écrans retina -->
+                <source srcset="images/logo/logoTablette.webp 1x, images/logo/logo-512x512.png 2x"
+                    media="(min-width: 600px)" width="120" height="120">
+                <!-- Logo Mobile (<600px) - 2x pour écrans retina -->
+                <img class="logo" src="images/logo/logoMobile.webp"
+                    srcset="images/logo/logoMobile.webp 1x, images/logo/logo-180x180.png 2x"
+                    alt="Logo du salon de coiffure Le Salon de Fred" width="96" height="100" decoding="async">
             </picture>
         </a>
     </header>
@@ -298,7 +312,7 @@
             <ul>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#horaires">Horaires</a></li>
-                <li><a href="tel:+33450020301">Prendre rendez-vous</a></li>
+                <li><a href="tel:+33450020301" class="btn-rdv">Prendre rendez-vous</a></li>
             </ul>
         </div>
         <div class="nav-social">
@@ -414,8 +428,9 @@
                     <p><strong>Téléphone : 04 50 02 03 01</strong></p>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d173.58988517496388!2d6.325299725519681!3d45.88254913605064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf3e5a605a275%3A0xebba492aca414ddc!2sLe%20salon%20de%20Fred!5e0!3m2!1sfr!2sfr!4v1760686765123!5m2!1sfr!2sfr"
-                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade" title="Carte Google Maps du Salon de Fred"></iframe>
+                        width="100%" height="300" style="border:0; border-radius: 8px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="Carte Google Maps du Salon de Fred"></iframe>
                 </div>
             </div>
         </section>

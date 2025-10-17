@@ -27,7 +27,7 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Animations au scroll - optimisées avec will-change */
+/* Animations au scroll - optimisées */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -46,7 +46,6 @@ body {
 .services li {
     animation: fadeInUp 1s ease-out;
     animation-fill-mode: both;
-    will-change: transform, opacity;
 }
 
 .services li:nth-child(1) {
@@ -118,6 +117,18 @@ nav a {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+nav a.btn-rdv {
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    padding: 8px 8px;
+    transition: background-color 0.2s ease;
+}
+
+nav a.btn-rdv:hover {
+    background-color: #e8e8e8;
 }
 
 nav a:hover {
@@ -419,6 +430,10 @@ footer {
     nav a {
         font-size: 16px;
         padding: 6px 12px;
+    }
+
+    nav a.btn-rdv {
+        padding: 6px 6px;
     }
 
     /* Cache les réseaux sociaux sous 768px */
