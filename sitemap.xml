@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://lesalondefred.fr/</loc>
-  </url>
-  <url>
-    <loc>https://lesalondefred.fr/#services</loc>
-  </url>
-  <url>
-    <loc>https://lesalondefred.fr/#horaires</loc>
+    <lastmod>2025-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Images importantes pour l'indexation -->
+    <image:image>
+      <image:loc>https://lesalondefred.fr/images/salon/introDesktop.webp</image:loc>
+      <image:title>Intérieur du Salon de Fred à Thônes</image:title>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://lesalondefred.fr/images/logo/logoDesktop.webp</image:loc>
+      <image:title>Logo Le Salon de Fred</image:title>
+    </image:image>
   </url>
 </urlset>

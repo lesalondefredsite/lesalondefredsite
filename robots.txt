@@ -3,6 +3,3 @@ Allow: /
 
 # Sitemap
 Sitemap: https://lesalondefred.fr/sitemap.xml
-
-# Optimisations d'exploration
-Crawl-delay: 1
