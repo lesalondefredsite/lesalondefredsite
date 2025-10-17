@@ -98,6 +98,7 @@
 
         body {
             font-family: Arial, sans-serif;
+            font-display: swap;
             line-height: 1.6;
             color: #333;
             background-color: #f4f4f4
@@ -118,13 +119,16 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: black
+            color: black;
+            width: 135px;
+            height: 140px;
         }
 
         header .logo {
             width: 135px;
             height: 140px;
             object-fit: contain;
+            display: block;
         }
 
         /* Nav */
@@ -316,10 +320,9 @@
                 <!-- Logo Tablette (≥600px) - 2x pour écrans retina -->
                 <source srcset="images/logo/logoTablette.webp 1x, images/logo/logo-512x512.png 2x"
                     media="(min-width: 600px)" width="120" height="120">
-                <!-- Logo Mobile (<600px) - 2x pour écrans retina -->
-                <img class="logo" src="images/logo/logoMobile.webp"
-                    srcset="images/logo/logoMobile.webp 1x, images/logo/logo-180x180.png 2x"
-                    alt="Logo du salon de coiffure Le Salon de Fred" width="96" height="100" decoding="async">
+                <!-- Logo Mobile (<600px) - WebP uniquement pour éviter CLS -->
+                <img class="logo" src="images/logo/logoMobile.webp" alt="Logo du salon de coiffure Le Salon de Fred"
+                    width="96" height="100">
             </picture>
         </a>
     </header>
