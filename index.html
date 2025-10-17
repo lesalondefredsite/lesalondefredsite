@@ -144,6 +144,24 @@
             justify-content: center
         }
 
+        .nav-spacer {
+            flex: 1
+        }
+
+        .nav-social {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px
+        }
+
+        .nav-social a {
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center
+        }
+
         nav a {
             color: white;
             text-decoration: none;
@@ -280,18 +298,12 @@
         }
     </style>
 
-    <!-- Preload du CSS pour un chargement plus rapide -->
-    <link rel="preload" as="style" href="css/style.min.css">
-
-    <!-- Preload de l'image LCP -->
+    <!-- Preload de l'image LCP en priorité absolue -->
     <link rel="preload" as="image" href="images/salon/introMobile.webp" media="(max-width:599px)" fetchpriority="high">
     <link rel="preload" as="image" href="images/salon/introTablette.webp"
         media="(min-width:600px) and (max-width:1023px)" fetchpriority="high">
     <link rel="preload" as="image" href="images/salon/introDesktop.webp" media="(min-width:1024px)"
         fetchpriority="high">
-
-    <!-- CSS complet -->
-    <link rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
@@ -341,12 +353,11 @@
             <h1>Le Salon de Fred</h1>
             <p>Artisan coiffeur à Thônes</p>
             <picture>
-                <source srcset="images/salon/introDesktop.webp" media="(min-width: 1024px)" width="1920" height="1056"
-                    fetchpriority="high">
+                <source srcset="images/salon/introDesktop.webp" media="(min-width: 1024px)" width="1920" height="1056">
                 <source srcset="images/salon/introTablette.webp" media="(min-width: 600px)" width="1024" height="563">
                 <img src="images/salon/introMobile.webp"
                     alt="Photo de l'intérieur du salon de coiffure Le Salon de Fred à Thônes" width="728" height="400"
-                    fetchpriority="high" sizes="100vw" decoding="async">
+                    fetchpriority="high" sizes="100vw">
             </picture>
         </section>
         <section class="services" id="services">
@@ -442,6 +453,9 @@
     <footer>
         <p>&copy; 2025 Le Salon de Fred</p>
     </footer>
+
+    <!-- CSS non-critique chargé après le contenu -->
+    <link rel="stylesheet" href="css/style.min.css">
 </body>
 
 </html>
