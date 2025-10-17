@@ -27,26 +27,28 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Animations au scroll - optimisées et différées */
+/* Animations optimisées pour GPU (composées) */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translate3d(0, 30px, 0);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
 /* Pas d'animation sur intro pour ne pas retarder le LCP */
 .services, #horaires {
     animation: fadeInUp 0.8s ease-out;
+    transform: translate3d(0, 0, 0); /* Force GPU */
 }
 
 .services li {
     animation: fadeInUp 1s ease-out;
     animation-fill-mode: both;
+    transform: translate3d(0, 0, 0); /* Force GPU */
 }
 
 .services li:nth-child(1) {
@@ -120,6 +122,10 @@ nav a {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+nav a:hover {
+    will-change: transform, background-color;
+}
+
 nav a.btn-rdv {
     background-color: white;
     color: black;
@@ -134,7 +140,7 @@ nav a.btn-rdv:hover {
 
 nav a:hover {
     background-color: #555;
-    transform: translateY(-2px);
+    transform: translate3d(0, -2px, 0);
 }
 
 .nav-social {
@@ -155,7 +161,7 @@ nav a:hover {
 
 .nav-social a:hover {
     color: #ccc;
-    transform: scale(1.15);
+    transform: scale3d(1.15, 1.15, 1);
 }
 
 .nav-social svg {
@@ -189,7 +195,7 @@ footer {
 
 .social-links a:hover {
     color: #ccc;
-    transform: scale(1.1);
+    transform: scale3d(1.1, 1.1, 1);
 }
 
 .social-links svg {
