@@ -7,7 +7,7 @@
     <meta name="color-scheme" content="light">
     <meta name="theme-color" content="#f4f4f4">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' blob: data:; font-src 'self'; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.googleapis.com;">
+        content="default-src 'self'; script-src 'self' 'sha256-8ZP1MrbRvH39VGM1V1BDyYp4QWA6a9uh0mf2EhRQEwE='; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' blob: data:; font-src 'self'; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.googleapis.com;">
 
     <!-- Cache optimization meta tags for GitHub Pages -->
     <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
@@ -411,20 +411,15 @@
                 <li>
                     <h3>Coiffure Homme</h3>
                     <picture>
-                        <source srcset="images/gens/HOMMEDesktop-opt.webp" media="(min-width: 1024px)" width="578"
-                            height="600">
-                        <source srcset="images/gens/HOMMETablette.webp" media="(min-width: 600px)" width="512"
-                            height="768">
-                        <picture>
-                            <source srcset="images/gens/HOMMEDesktop-opt.webp 578w" media="(min-width: 1024px)"
-                                width="578" height="600" sizes="33vw">
-                            <source srcset="images/gens/HOMMETablette.webp 512w" media="(min-width: 600px)" width="512"
-                                height="768" sizes="100vw">
-                            <img src="images/gens/HOMMEMobile.webp" alt="Illustration Coiffure homme" loading="lazy"
-                                width="400" height="600" sizes="100vw" decoding="async"
-                                srcset="images/gens/HOMMEMobile.webp 400w"
-                                style="width: 100%; height: 90vh; object-fit: cover; display: block;">
-                        </picture>
+                        <source srcset="images/gens/HOMMEDesktop-opt.webp 578w" media="(min-width: 1024px)" width="578"
+                            height="600" sizes="33vw">
+                        <source srcset="images/gens/HOMMETablette.webp 512w" media="(min-width: 600px)" width="512"
+                            height="768" sizes="100vw">
+                        <img src="images/gens/HOMMEMobile.webp" alt="Illustration Coiffure homme" loading="lazy"
+                            width="400" height="600" sizes="100vw" decoding="async"
+                            srcset="images/gens/HOMMEMobile.webp 400w"
+                            style="width: 100%; height: 90vh; object-fit: cover; display: block;">
+                    </picture>
                 </li>
             </ul>
         </section>
