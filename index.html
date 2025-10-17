@@ -4,8 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#f4f4f4">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' blob: data:; font-src 'self'; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.googleapis.com;">
+
+    <!-- Cache optimization meta tags for GitHub Pages -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+    <meta http-equiv="Expires" content="Tue, 01 Jan 2030 00:00:00 GMT">
+
     <meta name="description"
         content="Le Salon de Fred à Thônes : coiffeur pour femmes, hommes et enfants. Découvrez nos services, horaires, adresse et prenez rendez-vous facilement.">
 
@@ -101,7 +108,8 @@
             font-display: swap;
             line-height: 1.6;
             color: #333;
-            background-color: #f4f4f4
+            background-color: #f4f4f4;
+            contain: layout style;
         }
 
         /* Header */
@@ -192,7 +200,8 @@
             right: 50%;
             margin-left: -50vw;
             margin-right: -50vw;
-            margin-bottom: 0
+            margin-bottom: 0;
+            contain: layout style paint;
         }
 
         .intro img {
@@ -200,7 +209,9 @@
             height: 80vh;
             display: block;
             object-fit: cover;
-            background-color: #f4f4f4
+            background-color: #f4f4f4;
+            will-change: auto;
+            contain: layout style paint;
         }
 
         .intro::after {
@@ -300,13 +311,14 @@
         }
     </style>
 
-    <!-- Preload de l'image LCP en priorité absolue -->
+    <!-- Preload de l'image LCP en priorité absolue avec optimisations -->
     <link rel="preload" as="image" href="images/salon/introMobile-hq.webp" media="(max-width:599px)"
-        fetchpriority="high">
+        fetchpriority="high" imagesrcset="images/salon/introMobile-hq.webp 800w" imagesizes="100vw">
     <link rel="preload" as="image" href="images/salon/introTablette.webp"
-        media="(min-width:600px) and (max-width:1023px)" fetchpriority="high">
+        media="(min-width:600px) and (max-width:1023px)" fetchpriority="high"
+        imagesrcset="images/salon/introTablette.webp 1024w" imagesizes="100vw">
     <link rel="preload" as="image" href="images/salon/introDesktop-opt2.webp" media="(min-width:1024px)"
-        fetchpriority="high">
+        fetchpriority="high" imagesrcset="images/salon/introDesktop-opt2.webp 1000w" imagesizes="100vw">
 </head>
 
 <body>
@@ -355,12 +367,14 @@
             <h1>Le Salon de Fred</h1>
             <p>Artisan coiffeur à Thônes</p>
             <picture>
-                <source srcset="images/salon/introDesktop-opt2.webp" media="(min-width: 1024px)" width="1000"
-                    height="550">
-                <source srcset="images/salon/introTablette.webp" media="(min-width: 600px)" width="1024" height="563">
+                <source srcset="images/salon/introDesktop-opt2.webp 1000w" media="(min-width: 1024px)" width="1000"
+                    height="550" sizes="100vw">
+                <source srcset="images/salon/introTablette.webp 1024w" media="(min-width: 600px)" width="1024"
+                    height="563" sizes="100vw">
                 <img src="images/salon/introMobile-hq.webp"
                     alt="Photo de l'intérieur du salon de coiffure Le Salon de Fred à Thônes" width="800" height="439"
-                    fetchpriority="high" sizes="100vw">
+                    fetchpriority="high" sizes="100vw" srcset="images/salon/introMobile-hq.webp 800w"
+                    style="width: 100%; height: 80vh; object-fit: cover; display: block;">
             </picture>
         </section>
         <section class="services" id="services">
@@ -371,23 +385,27 @@
                 <li>
                     <h3>Coiffure Femme</h3>
                     <picture>
-                        <source srcset="images/gens/FEMMEDesktop-opt.webp" media="(min-width: 1024px)" width="578"
-                            height="600">
-                        <source srcset="images/gens/FEMMETablette.webp" media="(min-width: 600px)" width="512"
-                            height="768">
+                        <source srcset="images/gens/FEMMEDesktop-opt.webp 578w" media="(min-width: 1024px)" width="578"
+                            height="600" sizes="33vw">
+                        <source srcset="images/gens/FEMMETablette.webp 512w" media="(min-width: 600px)" width="512"
+                            height="768" sizes="100vw">
                         <img src="images/gens/FEMMEMobile.webp" alt="Illustration Coiffure femme" loading="lazy"
-                            width="400" height="600" sizes="100vw" decoding="async">
+                            width="400" height="600" sizes="100vw" decoding="async"
+                            srcset="images/gens/FEMMEMobile.webp 400w"
+                            style="width: 100%; height: 90vh; object-fit: cover; display: block;">
                     </picture>
                 </li>
                 <li>
                     <h3>Coiffure Enfant</h3>
                     <picture>
-                        <source srcset="images/gens/ENFANTDesktop.webp" media="(min-width: 1024px)" width="600"
-                            height="592">
-                        <source srcset="images/gens/ENFANTTablette.webp" media="(min-width: 600px)" width="512"
-                            height="768">
+                        <source srcset="images/gens/ENFANTDesktop.webp 600w" media="(min-width: 1024px)" width="600"
+                            height="592" sizes="33vw">
+                        <source srcset="images/gens/ENFANTTablette.webp 512w" media="(min-width: 600px)" width="512"
+                            height="768" sizes="100vw">
                         <img src="images/gens/ENFANTMobile.webp" alt="Illustration Coiffure enfant" loading="lazy"
-                            width="400" height="600" sizes="100vw" decoding="async">
+                            width="400" height="600" sizes="100vw" decoding="async"
+                            srcset="images/gens/ENFANTMobile.webp 400w"
+                            style="width: 100%; height: 90vh; object-fit: cover; display: block;">
                     </picture>
                 </li>
                 <li>
@@ -397,9 +415,16 @@
                             height="600">
                         <source srcset="images/gens/HOMMETablette.webp" media="(min-width: 600px)" width="512"
                             height="768">
-                        <img src="images/gens/HOMMEMobile.webp" alt="Illustration Coiffure homme" loading="lazy"
-                            width="400" height="600" sizes="100vw" decoding="async">
-                    </picture>
+                        <picture>
+                            <source srcset="images/gens/HOMMEDesktop-opt.webp 578w" media="(min-width: 1024px)"
+                                width="578" height="600" sizes="33vw">
+                            <source srcset="images/gens/HOMMETablette.webp 512w" media="(min-width: 600px)" width="512"
+                                height="768" sizes="100vw">
+                            <img src="images/gens/HOMMEMobile.webp" alt="Illustration Coiffure homme" loading="lazy"
+                                width="400" height="600" sizes="100vw" decoding="async"
+                                srcset="images/gens/HOMMEMobile.webp 400w"
+                                style="width: 100%; height: 90vh; object-fit: cover; display: block;">
+                        </picture>
                 </li>
             </ul>
         </section>
@@ -448,7 +473,8 @@
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d173.58988517496388!2d6.325299725519681!3d45.88254913605064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf3e5a605a275%3A0xebba492aca414ddc!2sLe%20salon%20de%20Fred!5e0!3m2!1sfr!2sfr!4v1760686765123!5m2!1sfr!2sfr"
                         width="100%" height="300" style="border:0; border-radius: 8px;" allowfullscreen=""
                         loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                        title="Carte Google Maps du Salon de Fred"></iframe>
+                        title="Carte Google Maps du Salon de Fred"
+                        sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
                 </div>
             </div>
         </section>
@@ -511,31 +537,44 @@
             }
         }
 
-        /* Pas d'animation sur intro pour ne pas retarder le LCP */
+        /* Optimisation performance - réduction animations pour améliorer thread principal */
         .services,
         #horaires {
-            animation: fadeInUp 0.8s ease-out;
+            will-change: auto;
             transform: translate3d(0, 0, 0);
-            /* Force GPU */
+            contain: layout style paint;
         }
 
         .services li {
-            animation: fadeInUp 1s ease-out;
-            animation-fill-mode: both;
+            will-change: auto;
             transform: translate3d(0, 0, 0);
-            /* Force GPU */
+            contain: layout style paint;
         }
 
-        .services li:nth-child(1) {
-            animation-delay: 0.1s;
-        }
+        /* Réduction des animations pour moins de charge CPU */
+        @media (prefers-reduced-motion: no-preference) {
 
-        .services li:nth-child(2) {
-            animation-delay: 0.2s;
-        }
+            .services,
+            #horaires {
+                animation: fadeInUp 0.6s ease-out;
+            }
 
-        .services li:nth-child(3) {
-            animation-delay: 0.3s;
+            .services li {
+                animation: fadeInUp 0.8s ease-out;
+                animation-fill-mode: both;
+            }
+
+            .services li:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+
+            .services li:nth-child(2) {
+                animation-delay: 0.15s;
+            }
+
+            .services li:nth-child(3) {
+                animation-delay: 0.2s;
+            }
         }
 
         header {
@@ -613,8 +652,13 @@
         }
 
         nav a:hover {
+            will-change: transform, background-color;
             background-color: #555;
             transform: translate3d(0, -2px, 0);
+        }
+
+        nav a:not(:hover) {
+            will-change: auto;
         }
 
         .nav-social {
@@ -763,14 +807,17 @@
         .services li {
             position: relative;
             width: 100%;
-            transition: transform 0.3s ease;
-            /* Optimisation GPU */
-            transform: translateZ(0);
-            backface-visibility: hidden;
+            contain: layout style paint;
+            will-change: auto;
         }
 
         .services li:hover {
+            will-change: transform;
             transform: scale(1.02);
+        }
+
+        .services li:not(:hover) {
+            will-change: auto;
         }
 
         .services li img {
@@ -1076,6 +1123,19 @@
             }
         }
     </style>
+
+    <!-- Service Worker Registration (minimal for GitHub Pages) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                    console.log('SW registered');
+                }).catch(function (registrationError) {
+                    console.log('SW registration failed');
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>
