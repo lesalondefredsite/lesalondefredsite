@@ -1,3 +1,44 @@
+# Le Salon de Fred - Site Web Officiel
+
+Site web vitrine pour Le Salon de Fred, salon de coiffure à Thônes (74230).
+
+## ✨ Dernières améliorations (Octobre 2025)
+
+### 🔒 Sécurité
+- ✅ Content Security Policy (CSP) optimisée et corrigée
+- ✅ Attributs `rel="noopener noreferrer"` sur tous les liens externes
+- ✅ Sandbox sur iframe Google Maps
+- ✅ Headers de sécurité (.htaccess)
+
+### 📱 Progressive Web App (PWA)
+- ✅ Manifest.json créé avec icônes et screenshots
+- ✅ Service Worker v3 avec stratégie Network First
+- ✅ Gestion d'erreur robuste dans le cache
+- ✅ Mode hors ligne fonctionnel
+- ✅ Installation possible sur mobile/desktop
+
+### ♿ Accessibilité WCAG 2.1
+- ✅ Tous les SVG ont `role="img"` et `<title>`
+- ✅ IDs uniques pour chaque SVG (`aria-labelledby`)
+- ✅ Navigation au clavier optimisée
+- ✅ Focus visible amélioré
+- ✅ Respect de `prefers-reduced-motion`
+
+### 🎯 SEO Avancé
+- ✅ Données structurées JSON-LD enrichies
+- ✅ `openingHoursSpecification` détaillée
+- ✅ Sitemap.xml avec images
+- ✅ Open Graph complet
+- ✅ Twitter Cards
+- ✅ Métadonnées géographiques
+
+### ⚡ Performance
+- ✅ CSS minifié (réduction de 23%)
+- ✅ Service Worker avec cache intelligent
+- ✅ Images WebP optimisées
+- ✅ Preload des ressources critiques (LCP)
+- ✅ DNS prefetch pour Google Maps
+
 ## 🎯 Optimisations SEO
 
 - ✅ Meta description optimisée
@@ -43,10 +84,8 @@
 
 ## 📞 Informations de contact
 
-- **Adresse** : 4 Rue de la Poste, 74230 Thônes
-- **Téléphone** : 04 50 02 06 80
-- **Facebook** : [facebook.com/lesalondefred](https://www.facebook.com/lesalondefred)
-- **Instagram** : [@lesalondefred](https://www.instagram.com/lesalondefred)
+**Adresse** : 6 Rue de la Saulne, 74230 Thônes  
+**Téléphone** : 04 50 02 03 01
 
 ## 🌐 Mise en ligne avec GitHub Pages & Infomaniak
 

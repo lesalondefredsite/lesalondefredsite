@@ -1,0 +1,84 @@
+{
+  "name": "Le Salon de Fred - Coiffeur à Thônes",
+  "short_name": "Le Salon de Fred",
+  "description": "Coiffeur pour femmes, hommes et enfants à Thônes. Prise de rendez-vous, horaires et contact.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f4f4f4",
+  "orientation": "portrait-primary",
+  "lang": "fr",
+  "dir": "ltr",
+  "categories": ["business", "lifestyle"],
+  "icons": [
+    {
+      "src": "/images/logo/logo-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo/logo-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo/logo-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo/logo-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/salon/introDesktop-opt2.webp",
+      "sizes": "1000x550",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "Intérieur du salon de coiffure"
+    },
+    {
+      "src": "/images/salon/introMobile-hq.webp",
+      "sizes": "800x439",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Vue du salon"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Prendre rendez-vous",
+      "short_name": "RDV",
+      "description": "Appeler pour prendre rendez-vous",
+      "url": "/index.html#horaires",
+      "icons": [
+        {
+          "src": "/images/logo/logo-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Horaires",
+      "short_name": "Horaires",
+      "description": "Consulter les horaires d'ouverture",
+      "url": "/index.html#horaires",
+      "icons": [
+        {
+          "src": "/images/logo/logo-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

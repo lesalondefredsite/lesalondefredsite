@@ -3,19 +3,35 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://lesalondefred.fr/</loc>
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     
     <!-- Images importantes pour l'indexation -->
     <image:image>
-      <image:loc>https://lesalondefred.fr/images/salon/introDesktop.webp</image:loc>
+      <image:loc>https://lesalondefred.fr/images/salon/introDesktop-opt2.webp</image:loc>
       <image:title>Intérieur du Salon de Fred à Thônes</image:title>
     </image:image>
     
     <image:image>
       <image:loc>https://lesalondefred.fr/images/logo/logoDesktop.webp</image:loc>
       <image:title>Logo Le Salon de Fred</image:title>
+    </image:image>
+    
+    <!-- Images supplémentaires pour un meilleur référencement -->
+    <image:image>
+      <image:loc>https://lesalondefred.fr/images/gens/FEMMEDesktop-opt.webp</image:loc>
+      <image:title>Services de coiffure femme - Le Salon de Fred</image:title>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://lesalondefred.fr/images/gens/HOMMEDesktop-opt.webp</image:loc>
+      <image:title>Services de coiffure homme - Le Salon de Fred</image:title>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://lesalondefred.fr/images/gens/ENFANTDesktop.webp</image:loc>
+      <image:title>Services de coiffure enfant - Le Salon de Fred</image:title>
     </image:image>
   </url>
 </urlset>

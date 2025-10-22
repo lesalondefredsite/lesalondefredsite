@@ -1,0 +1,55 @@
+# Optimisations pour la performance et la sécurité
+# Note: GitHub Pages a ses propres configurations, ce fichier est pour référence
+
+# Compression GZIP (géré automatiquement par GitHub Pages)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Cache des ressources statiques
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Images
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  
+  # CSS et JavaScript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  
+  # HTML
+  ExpiresByType text/html "access plus 1 hour"
+  
+  # Fonts
+  ExpiresByType font/woff2 "access plus 1 year"
+  
+  # Manifest et service worker
+  ExpiresByType application/manifest+json "access plus 1 week"
+</IfModule>
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+  # HSTS (HTTPS Strict Transport Security)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  
+  # X-Frame-Options
+  Header always set X-Frame-Options "SAMEORIGIN"
+  
+  # X-Content-Type-Options
+  Header always set X-Content-Type-Options "nosniff"
+  
+  # Referrer-Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Permissions-Policy
+  Header always set Permissions-Policy "geolocation=(self), microphone=(), camera=()"
+</IfModule>
+
+# Redirection HTTPS (géré par GitHub Pages automatiquement)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
