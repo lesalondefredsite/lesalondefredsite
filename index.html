@@ -9,7 +9,7 @@
 
     <!-- CSP optimisée -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google.com https://maps.googleapis.com https://maps.gstatic.com; font-src 'self'; connect-src 'self'; frame-src https://www.google.com https://maps.googleapis.com;">
+        content="default-src 'self'; script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE=' 'sha256-Lg+scNd10QiHLJiaKR8Vm74pzQejvJLdQnR41Kdx0KM='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google.com https://maps.googleapis.com https://maps.gstatic.com; font-src 'self'; connect-src 'self'; frame-src https://www.google.com https://maps.googleapis.com;">
 
     <meta name="description"
         content="Le Salon de Fred à Thônes : coiffeur pour femmes, hommes et enfants. Découvrez nos services, horaires, adresse et prenez rendez-vous facilement.">
@@ -70,12 +70,12 @@
 
     <title>Le Salon de Fred - Coiffeur à Thônes (femme, homme, enfant)</title>
 
+    <!-- CSS CRITIQUE : doit rester le plus haut possible dans le <head> pour un rendu rapide -->
+    <link rel="stylesheet" href="css/style.min.css"
+        integrity="sha384-paHRqduBxxH/c5cvVPlboIheRIQWnSkwduIP0EtaA1UVb/WyYHFvBCMAFhtr9CJw" crossorigin="anonymous">
+
     <!-- Preload image LCP simplifié -->
     <link rel="preload" as="image" href="images/salon/introMobile-hq.webp" fetchpriority="high">
-
-    <!-- CSS externe avec SRI -->
-    <link rel="stylesheet" href="css/style.min.css"
-        integrity="sha384-FImzcM7mCafKcnHKWcK/eCkflQPDB9vouArO6dMMIACPNWI7uxWVbUWRc6JAo090" crossorigin="anonymous">
 </head>
 
 <body>
@@ -225,14 +225,10 @@
                     <h3>Adresse</h3>
                     <p>Le Salon de Fred<br>6 Rue de la Saulne<br>74230 Thônes</p>
                     <p><strong>Téléphone : 04 50 02 03 01</strong></p>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d173.58988517496388!2d6.325299725519681!3d45.88254913605064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf3e5a605a275%3A0xebba492aca414ddc!2sLe%20salon%20de%20Fred!5e0!3m2!1sfr!2sfr!4v1760686765123!5m2!1sfr!2sfr"
-                        width="600" height="300" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Localisation du Salon de Fred - 6 Rue de la Saulne, Thônes"
-                        aria-label="Carte interactive montrant l'emplacement du salon"
-                        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-                        class="maps-iframe"></iframe>
+                    <div id="maps-lazy-placeholder"
+                        style="width:100%;height:300px;background:#e0e0e0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#888;font-size:18px;">
+                        Chargement de la carte…
+                    </div>
                 </div>
             </div>
         </section>
@@ -242,8 +238,10 @@
         <p>&copy; 2025 Le Salon de Fred</p>
     </footer>
 
-    <!-- Service Worker Registration -->
-    <script src="js/sw-register.js"></script>
+    <!-- Lazy loading Google Maps iframe -->
+    <script src="js/maps-lazy.js" defer></script>
+    <!-- Service Worker Registration : non critique, chargement différé -->
+    <script src="js/sw-register.js" defer></script>
 </body>
 
 </html>
