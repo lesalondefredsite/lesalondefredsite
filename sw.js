@@ -9,6 +9,7 @@ const urlsToCache = [
     '/index.html',
     '/css/style.min.css',
     '/js/sw-register.js',
+    '/js/structured-data.js',
     '/images/salon/introMobile-hq.webp',
     '/images/salon/introTablette.webp',
     '/images/salon/introDesktop-opt2.webp',

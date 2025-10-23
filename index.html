@@ -7,9 +7,9 @@
     <meta name="color-scheme" content="light">
     <meta name="theme-color" content="#f4f4f4">
 
-    <!-- CSP optimisée - Hash retiré -->
+    <!-- CSP optimisée -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://www.google.com https://maps.googleapis.com https://maps.gstatic.com; font-src 'self'; connect-src 'self'; frame-src https://www.google.com https://maps.googleapis.com;">
+        content="default-src 'self'; script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google.com https://maps.googleapis.com https://maps.gstatic.com; font-src 'self'; connect-src 'self'; frame-src https://www.google.com https://maps.googleapis.com;">
 
     <meta name="description"
         content="Le Salon de Fred à Thônes : coiffeur pour femmes, hommes et enfants. Découvrez nos services, horaires, adresse et prenez rendez-vous facilement.">
@@ -66,74 +66,6 @@
         content="Le Salon de Fred à Thônes : coiffeur pour femmes, hommes et enfants. Découvrez nos services, horaires, adresse et prenez rendez-vous facilement.">
     <meta name="twitter:image" content="https://lesalondefred.fr/images/salon/introDesktop-opt2.webp">
 
-    <!-- Données structurées JSON-LD -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "HairSalon",
-            "name": "Le Salon de Fred",
-            "logo": "https://lesalondefred.fr/images/logo/logo-512x512.png",
-            "image": "https://lesalondefred.fr/images/salon/introDesktop-opt2.webp",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "6 Rue de la Saulne",
-                "addressLocality": "Thônes",
-                "postalCode": "74230",
-                "addressCountry": "FR",
-                "addressRegion": "Haute-Savoie"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "45.882568623264596",
-                "longitude": "6.325528650170037"
-            },
-            "telephone": "+33 4 50 02 03 01",
-            "url": "https://lesalondefred.fr/",
-            "sameAs": [
-                "https://facebook.com/lesalondefred",
-                "https://instagram.com/lesalondefred"
-            ],
-            "openingHours": [
-                "Tu 08:30-12:00",
-                "Tu 14:00-18:30",
-                "We 08:30-12:00",
-                "We 14:00-18:30",
-                "Th 08:30-12:00",
-                "Fr 08:30-18:30"
-            ],
-            "openingHoursSpecification": [
-                {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": ["Tuesday", "Wednesday"],
-                    "opens": "08:30",
-                    "closes": "12:00"
-                },
-                {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": ["Tuesday", "Wednesday"],
-                    "opens": "14:00",
-                    "closes": "18:30"
-                },
-                {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": "Thursday",
-                    "opens": "08:30",
-                    "closes": "12:00"
-                },
-                {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": "Friday",
-                    "opens": "08:30",
-                    "closes": "18:30"
-                }
-            ],
-            "priceRange": "€€",
-            "description": "Coiffeur pour femmes, hommes et enfants à Thônes. Prise de rendez-vous, horaires, services et contact.",
-            "paymentAccepted": "Cash, Credit Card",
-            "currenciesAccepted": "EUR"
-        }
-    </script>
-
     <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
 
     <title>Le Salon de Fred - Coiffeur à Thônes (femme, homme, enfant)</title>
@@ -143,7 +75,7 @@
 
     <!-- CSS externe avec SRI -->
     <link rel="stylesheet" href="css/style.min.css"
-        integrity="sha384-yeIhN48KbcwOLKPvN9m1aIDTpVS3lpzMQ/qi15pHRYrru2BbboZMWPtPuuuPCUn9%" crossorigin="anonymous">
+        integrity="sha384-7AWWqmaYuOHreE5UEEp48Q+ldOw8M8PlMnGQYTd8H5sLeKvnmDgHwsDhnZq9tkb+" crossorigin="anonymous">
 </head>
 
 <body>
@@ -295,11 +227,12 @@
                     <p><strong>Téléphone : 04 50 02 03 01</strong></p>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d173.58988517496388!2d6.325299725519681!3d45.88254913605064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf3e5a605a275%3A0xebba492aca414ddc!2sLe%20salon%20de%20Fred!5e0!3m2!1sfr!2sfr!4v1760686765123!5m2!1sfr!2sfr"
-                        width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        width="600" height="300" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
                         title="Localisation du Salon de Fred - 6 Rue de la Saulne, Thônes"
                         aria-label="Carte interactive montrant l'emplacement du salon"
-                        sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"></iframe>
+                        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                        class="maps-iframe"></iframe>
                 </div>
             </div>
         </section>
