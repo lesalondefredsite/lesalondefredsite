@@ -7,18 +7,14 @@
     <meta name="color-scheme" content="light">
     <meta name="theme-color" content="#f4f4f4">
 
-    <!-- CSP optimisée -->
+    <!-- CSP optimisée - Hash retiré -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='; style-src 'self'; img-src 'self' data: https://www.google.com https://maps.googleapis.com https://maps.gstatic.com; font-src 'self'; connect-src 'self'; frame-src 'self' https://www.google.com https://maps.googleapis.com;">
-
-    <!-- Cache -->
-
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://www.google.com https://maps.googleapis.com https://maps.gstatic.com; font-src 'self'; connect-src 'self'; frame-src https://www.google.com https://maps.googleapis.com;">
 
     <meta name="description"
         content="Le Salon de Fred à Thônes : coiffeur pour femmes, hommes et enfants. Découvrez nos services, horaires, adresse et prenez rendez-vous facilement.">
     <meta name="keywords"
         content="coiffeur Thônes, salon coiffure Haute-Savoie, coiffure femme homme enfant, Le Salon de Fred, coiffeur 74230">
-    <meta name="robots" content="index, follow">
     <meta name="author" content="Le Salon de Fred">
     <meta name="geo.region" content="FR-74">
     <meta name="geo.placename" content="Thônes">
@@ -56,10 +52,10 @@
         content="Le Salon de Fred à Thônes : coiffeur pour femmes, hommes et enfants. Découvrez nos services, horaires, adresse et prenez rendez-vous facilement.">
     <meta property="og:type" content="business.business">
     <meta property="og:url" content="https://lesalondefred.fr/">
-    <meta property="og:image" content="https://lesalondefred.fr/images/og-image.jpg">
+    <meta property="og:image" content="https://lesalondefred.fr/images/salon/introDesktop-opt2.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:type" content="image/webp">
     <meta property="og:image:alt" content="Le Salon de Fred - Coiffeur à Thônes">
     <meta property="og:locale" content="fr_FR">
 
@@ -68,7 +64,7 @@
     <meta name="twitter:title" content="Le Salon de Fred - Coiffeur à Thônes (femme, homme, enfant)">
     <meta name="twitter:description"
         content="Le Salon de Fred à Thônes : coiffeur pour femmes, hommes et enfants. Découvrez nos services, horaires, adresse et prenez rendez-vous facilement.">
-    <meta name="twitter:image" content="https://lesalondefred.fr/images/og-image.jpg">
+    <meta name="twitter:image" content="https://lesalondefred.fr/images/salon/introDesktop-opt2.webp">
 
     <!-- Données structurées JSON-LD -->
     <script type="application/ld+json">
@@ -77,7 +73,7 @@
             "@type": "HairSalon",
             "name": "Le Salon de Fred",
             "logo": "https://lesalondefred.fr/images/logo/logo-512x512.png",
-            "image": "https://lesalondefred.fr/images/og-image.jpg",
+            "image": "https://lesalondefred.fr/images/salon/introDesktop-opt2.webp",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "6 Rue de la Saulne",
@@ -133,12 +129,6 @@
             ],
             "priceRange": "€€",
             "description": "Coiffeur pour femmes, hommes et enfants à Thônes. Prise de rendez-vous, horaires, services et contact.",
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "bestRating": "5",
-                "reviewCount": "139"
-            },
             "paymentAccepted": "Cash, Credit Card",
             "currenciesAccepted": "EUR"
         }
@@ -148,17 +138,12 @@
 
     <title>Le Salon de Fred - Coiffeur à Thônes (femme, homme, enfant)</title>
 
-    <!-- Preload image LCP -->
-    <link rel="preload" as="image" href="images/salon/introMobile-hq.webp" media="(max-width:599px)"
-        fetchpriority="high" imagesrcset="images/salon/introMobile-hq.webp 800w" imagesizes="100vw">
-    <link rel="preload" as="image" href="images/salon/introTablette.webp"
-        media="(min-width:600px) and (max-width:1023px)" fetchpriority="high"
-        imagesrcset="images/salon/introTablette.webp 1024w" imagesizes="100vw">
-    <link rel="preload" as="image" href="images/salon/introDesktop-opt2.webp" media="(min-width:1024px)"
-        fetchpriority="high" imagesrcset="images/salon/introDesktop-opt2.webp 1000w" imagesizes="100vw">
+    <!-- Preload image LCP simplifié -->
+    <link rel="preload" as="image" href="images/salon/introMobile-hq.webp" fetchpriority="high">
 
-    <!-- CSS externe - Production -->
-    <link rel="stylesheet" href="css/style.min.css">
+    <!-- CSS externe avec SRI -->
+    <link rel="stylesheet" href="css/style.min.css"
+        integrity="sha384-yeIhN48KbcwOLKPvN9m1aIDTpVS3lpzMQ/qi15pHRYrru2BbboZMWPtPuuuPCUn9%" crossorigin="anonymous">
 </head>
 
 <body>
@@ -186,8 +171,8 @@
             <a href="https://facebook.com/lesalondefred" target="_blank" rel="noopener noreferrer"
                 aria-label="Facebook du salon de Fred">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
-                    role="img" aria-labelledby="facebook-icon-nav">
-                    <title id="facebook-icon-nav">Facebook</title>
+                    role="img" aria-labelledby="facebook-nav-icon">
+                    <title id="facebook-nav-icon">Facebook</title>
                     <path
                         d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
@@ -195,8 +180,8 @@
             <a href="https://instagram.com/lesalondefred" target="_blank" rel="noopener noreferrer"
                 aria-label="Instagram du salon de Fred">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
-                    role="img" aria-labelledby="instagram-icon-nav">
-                    <title id="instagram-icon-nav">Instagram</title>
+                    role="img" aria-labelledby="instagram-nav-icon">
+                    <title id="instagram-nav-icon">Instagram</title>
                     <path
                         d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
@@ -279,16 +264,16 @@
                     </ul>
                     <p><strong>UNIQUEMENT SUR RDV</strong></p>
                     <a href="tel:+33450020301" class="btn-call"
-                        aria-label="Appeler le 04 50 02 03 01 pour prendre rendez-vous">📞 Prendre rendez-vous</a>
+                        aria-label="Appeler le 04 50 02 03 01 pour prendre rendez-vous">📞 Appeler le salon</a>
                     <a href="https://maps.app.goo.gl/s59CmF7t8V7kipdo9?g_st=ipc" target="_blank"
-                        rel="noopener noreferrer" class="btn-call btn-call-spaced"
-                        aria-label="Consulter les avis clients sur Google">⭐ Voir les avis Google</a>
+                        rel="noopener noreferrer" class="btn-call" aria-label="Consulter les avis clients sur Google">⭐
+                        Voir les avis Google</a>
                     <div class="social-links">
                         <a href="https://facebook.com/lesalondefred" target="_blank" rel="noopener noreferrer"
                             aria-label="Facebook du salon de Fred">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
-                                fill="currentColor" role="img" aria-labelledby="facebook-icon-footer">
-                                <title id="facebook-icon-footer">Facebook</title>
+                                fill="currentColor" role="img" aria-labelledby="facebook-footer-icon">
+                                <title id="facebook-footer-icon">Facebook</title>
                                 <path
                                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                             </svg>
@@ -296,8 +281,8 @@
                         <a href="https://instagram.com/lesalondefred" target="_blank" rel="noopener noreferrer"
                             aria-label="Instagram du salon de Fred">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
-                                fill="currentColor" role="img" aria-labelledby="instagram-icon-footer">
-                                <title id="instagram-icon-footer">Instagram</title>
+                                fill="currentColor" role="img" aria-labelledby="instagram-footer-icon">
+                                <title id="instagram-footer-icon">Instagram</title>
                                 <path
                                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                             </svg>
@@ -310,17 +295,17 @@
                     <p><strong>Téléphone : 04 50 02 03 01</strong></p>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d173.58988517496388!2d6.325299725519681!3d45.88254913605064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf3e5a605a275%3A0xebba492aca414ddc!2sLe%20salon%20de%20Fred!5e0!3m2!1sfr!2sfr!4v1760686765123!5m2!1sfr!2sfr"
-                        width="100" height="300" class="maps-iframe" allowfullscreen="" loading="lazy"
+                        width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
                         title="Localisation du Salon de Fred - 6 Rue de la Saulne, Thônes"
                         aria-label="Carte interactive montrant l'emplacement du salon"
-                        sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+                        sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"></iframe>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2025 Le Salon de Fred</p>
     </footer>
 

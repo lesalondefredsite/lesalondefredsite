@@ -1,7 +1,9 @@
-// Service Worker optimisé pour GitHub Pages
-// Cache les ressources statiques pour améliorer les performances
+// Service Worker v4 - Stratégie hybride optimisée
+// Cache First pour assets statiques, Network First pour HTML
 
-const CACHE_NAME = 'lesalondefred-v3';
+const CACHE_NAME = 'lesalondefred-v4';
+const OFFLINE_PAGE = '/offline.html';
+
 const urlsToCache = [
     '/',
     '/index.html',
@@ -24,10 +26,11 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(function (cache) {
+                console.log('[SW] Mise en cache des ressources');
                 return cache.addAll(urlsToCache);
             })
             .catch(function (error) {
-                console.error('Erreur lors de la mise en cache:', error);
+                console.error('[SW] Erreur lors de la mise en cache:', error);
             })
     );
     // Force le nouveau SW à devenir actif immédiatement
@@ -41,6 +44,7 @@ self.addEventListener('activate', function (event) {
             return Promise.all(
                 cacheNames.map(function (cacheName) {
                     if (cacheName !== CACHE_NAME) {
+                        console.log('[SW] Suppression ancien cache:', cacheName);
                         return caches.delete(cacheName);
                     }
                 })
@@ -51,42 +55,91 @@ self.addEventListener('activate', function (event) {
     return self.clients.claim();
 });
 
-// Stratégie Network First avec fallback cache pour une meilleure fraîcheur
+// Stratégie hybride : Cache First pour assets, Network First pour HTML
 self.addEventListener('fetch', function (event) {
-    // Ignorer les requêtes non-GET et externes (Google Maps, etc.)
-    if (event.request.method !== 'GET' || !event.request.url.startsWith(self.location.origin)) {
+    const { request } = event;
+    const url = new URL(request.url);
+
+    // Ignorer les requêtes non-GET et externes
+    if (request.method !== 'GET' || !url.origin.includes(self.location.origin)) {
         return;
     }
 
-    event.respondWith(
-        fetch(event.request)
-            .then(function (response) {
-                // Vérifier si la réponse est valide
-                if (!response || response.status !== 200 || response.type !== 'basic') {
-                    return response;
+    // Déterminer le type de ressource
+    const isStaticAsset = url.pathname.match(/\.(css|js|webp|png|jpg|jpeg|svg|woff2|woff|ttf)$/i);
+    const isHTML = request.headers.get('accept')?.includes('text/html');
+
+    if (isStaticAsset) {
+        // CACHE FIRST pour les assets statiques (CSS, JS, images, fonts)
+        event.respondWith(
+            caches.match(request).then(function (cachedResponse) {
+                if (cachedResponse) {
+                    return cachedResponse;
                 }
 
-                // Cloner la réponse pour la mettre en cache
-                const responseToCache = response.clone();
-
-                caches.open(CACHE_NAME).then(function (cache) {
-                    cache.put(event.request, responseToCache);
+                // Si pas en cache, fetcher et mettre en cache
+                return fetch(request).then(function (networkResponse) {
+                    // Vérifier que la réponse est valide
+                    if (networkResponse && networkResponse.status === 200) {
+                        const responseToCache = networkResponse.clone();
+                        caches.open(CACHE_NAME).then(function (cache) {
+                            cache.put(request, responseToCache);
+                        });
+                    }
+                    return networkResponse;
+                }).catch(function () {
+                    console.log('[SW] Asset non disponible:', url.pathname);
+                    return new Response('Asset non disponible', { status: 404 });
                 });
-
-                return response;
             })
-            .catch(function () {
-                // En cas d'échec réseau, fallback sur le cache
-                return caches.match(event.request)
-                    .then(function (cachedResponse) {
+        );
+    } else {
+        // NETWORK FIRST pour HTML et autres requêtes
+        event.respondWith(
+            fetch(request)
+                .then(function (networkResponse) {
+                    // Vérifier si la réponse est valide
+                    if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+                        return networkResponse;
+                    }
+
+                    // Cloner et mettre en cache
+                    const responseToCache = networkResponse.clone();
+                    caches.open(CACHE_NAME).then(function (cache) {
+                        cache.put(request, responseToCache);
+                    });
+
+                    return networkResponse;
+                })
+                .catch(function (error) {
+                    console.log('[SW] Erreur réseau, fallback cache:', error);
+
+                    // Fallback sur le cache
+                    return caches.match(request).then(function (cachedResponse) {
                         if (cachedResponse) {
                             return cachedResponse;
                         }
-                        // Si pas de cache, retourner une réponse par défaut pour les pages HTML
-                        if (event.request.headers.get('accept').includes('text/html')) {
-                            return caches.match('/index.html');
+
+                        // Si c'est du HTML et pas de cache, retourner la page d'accueil
+                        if (isHTML) {
+                            return caches.match('/index.html').then(function (indexPage) {
+                                return indexPage || new Response(
+                                    '<html><body><h1>Hors ligne</h1><p>Veuillez vérifier votre connexion internet.</p></body></html>',
+                                    {
+                                        headers: { 'Content-Type': 'text/html' },
+                                        status: 503
+                                    }
+                                );
+                            });
                         }
+
+                        // Pour les autres types, retourner une erreur 503
+                        return new Response('Service temporairement indisponible', {
+                            status: 503,
+                            statusText: 'Service Unavailable'
+                        });
                     });
-            })
-    );
+                })
+        );
+    }
 });
