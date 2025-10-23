@@ -1,7 +1,9 @@
 // Service Worker v4 - Stratégie hybride optimisée
 // Cache First pour assets statiques, Network First pour HTML
 
-const CACHE_NAME = 'lesalondefred-v4';
+// Pour forcer l'invalidation du cache lors d'un changement de fichier, ajoute le hash du CSS ici :
+const CSS_HASH = 'FImzcM7mCafKcnHKWcK/eCkflQPDB9vouArO6dMMIACPNWI7uxWVbUWRc6JAo090';
+const CACHE_NAME = 'lesalondefred-v4-' + CSS_HASH;
 const OFFLINE_PAGE = '/offline.html';
 
 const urlsToCache = [

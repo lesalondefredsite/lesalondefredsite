@@ -6,6 +6,11 @@
         "name": "Le Salon de Fred",
         "logo": "https://lesalondefred.fr/images/logo/logo-512x512.png",
         "image": "https://lesalondefred.fr/images/salon/introDesktop-opt2.webp",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": 139
+        },
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "6 Rue de la Saulne",
